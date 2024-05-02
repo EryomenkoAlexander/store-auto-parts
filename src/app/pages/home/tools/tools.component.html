@@ -1,0 +1,33 @@
+<div class="tools">
+  <div class="container">
+    <div class="tools__wrapper">
+      <div class="tools__header">
+        <h2 class="tools__header-title">Инструменты</h2>
+      </div>
+      <div class="cards">
+        <div class="card" *ngFor="let tool of tools">
+          <div class="image-container">
+            <img [src]="tool.imagePath" alt="tool">
+          </div>
+          <div class="card-info">
+            <h5 class="card-title">{{tool.title}}</h5>
+            <span class="card-sub-title">Бренд:</span>
+            <span class="card-sub-value">{{tool.brand}}</span>
+            <span class="card-sub-title">Количество предметов:</span>
+            <span class="card-sub-value">{{tool.qty}} шт.</span>
+            <span class="card-price">{{tool.price | number}} <span class="tenge">ТГ.</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tools-btn">
+      <app-button
+        color="#242b44"
+        text="Посмотреть еще"
+        size="lg"
+        width="full"
+        (onClick)="goToCatalog()"
+      ></app-button>
+    </div>
+  </div>
+</div>

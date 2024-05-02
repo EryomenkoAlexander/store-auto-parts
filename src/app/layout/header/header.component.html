@@ -1,0 +1,67 @@
+<header class="header">
+  <div class="container">
+    <div class="header__wrapper">
+      <div class="header__logo">
+        <a class="logo-title" routerLink="/">Auto Parts</a>
+      </div>
+
+      <div class="header__search">
+        <app-input
+          placeholder="Найти запчасть"
+          iconData="fa-solid fa-magnifying-glass"
+          iconPosition="before"
+          [control]="searchValueControl"
+        ></app-input>
+        <app-button
+          color="#242b44"
+          text="Поиск"
+          size="lg"
+          width="full"
+          (onClick)="onSearch()"
+        ></app-button>
+      </div>
+
+      <div class="header__right">
+        <app-select
+          class="item"
+          [items]="cities"
+          label="Город"
+          placeholder="Выберите город"
+          [(ngModel)]="activeCity"
+          (ngModelChange)="onChangeCity()"
+        ></app-select>
+
+        <div class="header__right__btns">
+          <app-button
+            *ngIf="!isLogged"
+            text="Войти"
+            size="lg"
+            width="full"
+            (onClick)="login()"
+          ></app-button>
+
+          <app-button
+            *ngIf="!isLogged"
+            color="#91cf6e"
+            text="Регистрация"
+            size="lg"
+            width="full"
+            (onClick)="registration()"
+          ></app-button>
+
+          <span class="header-short-user" *ngIf="isLogged">{{activeUser?.firstName}} {{activeUser?.lastName}}</span>
+          <app-button
+            *ngIf="isLogged"
+            color="#242b44"
+            text="Выйти"
+            size="lg"
+            width="full"
+            (onClick)="logout()"
+          ></app-button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</header>

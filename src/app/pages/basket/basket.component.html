@@ -1,0 +1,92 @@
+<div class="basket">
+  <div class="container">
+    <div class="basket__wrapper">
+      <div class="basket-btn">
+        <app-button
+          color="#91cf6e"
+          text="В каталог"
+          size="lg"
+          width="full"
+          (onClick)="goToCatalog()"
+        ></app-button>
+        <span class="basket-btn-icon" (click)="goToCatalog()"><i class="fa-regular fa-rectangle-list"></i></span>
+      </div>
+
+      <div class="basket-no-items" *ngIf="!basket.length">
+        Корзина пуста, добавьте товары <i class="fa-solid fa-face-frown"></i>
+      </div>
+
+      <div class="basket__inner" *ngIf="basket.length">
+        <div class="basket__items" *ngIf="basket.length">
+          <div class="basket__items-item" *ngFor="let part of basket">
+            <div class="basket__items-item-wrapper">
+              <div class="basket__items-item-content">
+                <div class="basket__items-item-image" [style.background]="getBg(part.imagePath)"></div>
+                <div class="basket__items-item-short-info">
+                  <span class="basket__items-item-description">{{part.description}}</span>
+                  <span class="basket__items-item-brand">Производитель: <span [style.font-weight]="600">{{part.brand}}</span></span>
+                </div>
+              </div>
+
+              <div class="basket__items-item-additional">
+                <span class="basket__items-item-additional-price">{{part.price | number}} ₸ <span class="basket__items-item-additional-price-sum">* {{part.count}} = {{part.price * part.count | number}} ₸</span></span>
+                <div class="basket__items-item-additional__counter">
+                  <app-button
+                    color="#242b44"
+                    text="-"
+                    size="lg"
+                    width="full"
+                    (onClick)="minus(part)"
+                  ></app-button>
+                  <span class="basket__items-item-additional__counter-value">{{part.count}}</span>
+                  <app-button
+                    color="#242b44"
+                    text="+"
+                    size="lg"
+                    width="full"
+                    (onClick)="plus(part)"
+                  ></app-button>
+                </div>
+                <app-button
+                  text="Удалить"
+                  size="lg"
+                  width="full"
+                  color="#FF5B00"
+                  (onClick)="deleteItem(part)"
+                ></app-button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="basket__sidebar">
+          <div class="basket__sidebar__item">
+            <span class="basket__sidebar__item-title">Количество позиций</span>
+            <span class="basket__sidebar__item-value">{{basket.length}}</span>
+          </div>
+          <div class="basket__sidebar__item">
+            <span class="basket__sidebar__item-title">Количество деталей</span>
+            <span class="basket__sidebar__item-value">{{countParts}}</span>
+          </div>
+          <div class="basket__sidebar__item">
+            <span class="basket__sidebar__item-title">Бесплатная доставка до пункта выдачи</span>
+            <span class="basket__sidebar__item-value"><i class="fa-solid fa-truck"></i></span>
+          </div>
+          <div class="basket__sidebar__main-item">
+            <span class="basket__sidebar__main-item-title">Общая стоимость</span>
+            <span class="basket__sidebar__main-item-value">{{totalCost | number}} ₸</span>
+          </div>
+          <div class="basket__sidebar__btn">
+            <app-button
+              color="rgb(243, 185, 73)"
+              text="Оформить заказ"
+              size="lg"
+              width="full"
+              (onClick)="goToCreateOrder()"
+            ></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

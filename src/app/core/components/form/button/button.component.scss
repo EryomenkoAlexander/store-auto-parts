@@ -1,0 +1,40 @@
+.button {
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: ease-in-out .2s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  &:disabled {
+    opacity: .3;
+  }
+}
+
+.sm {
+  background: red;
+  padding: 5px 10px;
+}
+
+.md {
+  background: blue;
+  padding: 10px 20px;
+}
+
+.lg {
+  background: pink;
+  padding: 15px 30px;
+}
+
+.auto {
+  width: auto;
+}
+
+.full {
+  width: 100%;
+}

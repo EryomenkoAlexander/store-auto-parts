@@ -1,0 +1,141 @@
+<div class="create-order">
+  <div class="container">
+    <div class="create-order__wrapper">
+      <div class="create-order__inner">
+        <div class="create-order-inputs">
+          <app-input
+            placeholder="Город"
+            [control]="city"
+            iconData="fa-solid fa-city"
+            iconPosition="before"
+          ></app-input>
+          <app-input
+            placeholder="Улица"
+            [control]="street"
+            iconData="fa-solid fa-road"
+            iconPosition="before"
+          ></app-input>
+          <app-input
+            placeholder="Дом"
+            [control]="home"
+            iconData="fa-solid fa-house-flag"
+            iconPosition="before"
+          ></app-input>
+          <app-input
+            placeholder="Номер телефона"
+            [control]="home"
+            iconData="fa-solid fa-phone"
+            iconPosition="before"
+          ></app-input>
+          <div class="create-order-inputs__type">
+            <span class="create-order-inputs__type-title">Тип оплаты:</span>
+
+            <div class="radio-container">
+              <div class="radio-wrapper" (click)="setActiveType('cash')">
+                <input class="input" name="btn" id="value-1" checked="true" type="radio">
+                <div class="btn">
+                  <span aria-hidden=""></span>Наличка
+                  <span class="btn__glitch" aria-hidden="">Наличка</span>
+                  <label class="number">r1</label>
+                </div>
+              </div>
+              <div class="radio-wrapper" (click)="setActiveType('card')">
+                <input class="input" name="btn" id="value-2" type="radio">
+                <div class="btn">
+                  Карта<span aria-hidden=""></span>
+                  <span class="btn__glitch" aria-hidden="">Карта</span>
+                  <label class="number">r2</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="create-order-inputs__total-cost__wrapper">
+            <div class="create-order-inputs__total-cost">
+              <span class="create-order-inputs__total-cost-title">Общая сумма:</span>
+              <span class="create-order-inputs__total-cost-value">{{totalCost | number}} ₸</span>
+            </div>
+            <div class="create-order-pay">
+              <app-button
+                color="#242b44"
+                text="Оплатить"
+                size="lg"
+                width="full"
+                (onClick)="pay()"
+              ></app-button>
+              <span class="create-order-pay-icon" (click)="pay()"><i class="fa-solid fa-money-bill-1-wave"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card__wrapper">
+        <div class="card-pay">
+          <div class="card">
+            <div class="card-inner">
+              <div class="front">
+                <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                <div class="row">
+                  <img src="https://i.ibb.co/G9pDnYJ/chip.png" width="60px">
+                  <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="60px">
+                </div>
+                <div class="row card-no">
+                  <p *ngFor="let partCardNumber of formattedCardNumber">{{partCardNumber}}</p>
+                </div>
+                <div class="row card-holder">
+                  <p>Носитель</p>
+                  <p>Дата Выпуска</p>
+                </div>
+                <div class="row name">
+                  <p>{{cardCarrier.value | uppercase}}</p>
+                  <p>{{cardDateStart.value}} / {{cardDateFinish.value}}</p>
+                </div>
+              </div>
+              <div class="back">
+                <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                <div class="bar"></div>
+                <div class="row card-cvv">
+                  <div>
+                    <img src="https://i.ibb.co/S6JG8px/pattern.png">
+                  </div>
+                  <p>{{ cardCvv.value | slice:0:3 }}</p>
+                </div>
+                <div class="row card-text">
+                  <p>Банковская карточка и данные содержащиеся в ней не является настоящими</p>
+                </div>
+                <div class="row signature">
+                  <p>ПОДПИСЬ НОСИТЕЛЯ</p>
+                  <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="80px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card__form">
+          <app-input
+            placeholder="Номер карточки"
+            [control]="cardNumber"
+          ></app-input>
+          <app-input
+            placeholder="Носитель"
+            [control]="cardCarrier"
+          ></app-input>
+          <div class="card__form__date">
+            <app-input
+              placeholder="Дата Выпуска (месяц)"
+              [control]="cardDateStart"
+            ></app-input>
+            <app-input
+              placeholder="Дата Выпуска (год)"
+              [control]="cardDateFinish"
+            ></app-input>
+          </div>
+          <app-input
+            placeholder="CVV"
+            [control]="cardCvv"
+          ></app-input>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

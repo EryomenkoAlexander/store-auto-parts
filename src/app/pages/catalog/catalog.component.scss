@@ -1,0 +1,131 @@
+.catalog {
+  margin: 50px 0;
+
+  &__wrapper {
+    display: flex;
+    gap: 50px;
+  }
+
+  .menu {
+    width: 25%;
+    padding: 0 0 50px;
+    border-radius: 20px;
+    border-left: 5px solid #242b44;
+    background: rgba(0, 0, 0, 0.06);
+
+    &-basket-btn {
+      margin: 30px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-around;
+
+      &-icon {
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+
+    &__wrapper {
+
+    }
+
+    &-item {
+      transition: ease-in-out .1s;
+      cursor: pointer;
+      padding: 15px 20px;
+      border-radius: 0 100px 0 0;
+
+      &.menu-item-active {
+        background: #242b44;
+
+        .menu-item-title {
+          color: #ffffff;
+        }
+      }
+
+      &:hover {
+        background: #242b44;
+
+        .menu-item-title {
+          color: #ffffff;
+        }
+      }
+
+      &-title {
+        font-weight: 500;
+        font-size: 18px;
+        transition: ease-in-out .1s;
+      }
+    }
+  }
+
+  &-items {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-item {
+      padding: 20px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+      border-radius: 10px;
+
+      &-wrapper {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      &-image-wrapper {
+        max-width: 25%;
+        width: 100%;
+      }
+
+      &-image {
+        width: 120px;
+        height: 120px;
+      }
+
+      &-short-info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      &-brand {
+        font-size: 15px;
+      }
+
+      &-description {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      &-content {
+        display: flex;
+        gap: 20px;
+      }
+
+      &-additional {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: flex-end;
+
+        &-price {
+          font-weight: 600;
+          font-size: 22px;
+        }
+
+        &__btns {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+      }
+    }
+  }
+}

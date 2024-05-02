@@ -1,0 +1,131 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+
+  .wrapper {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 50px 100px;
+    border-radius: 20px;
+    width: 600px;
+
+    .title {
+      margin-bottom: 40px;
+
+      > h2 {
+        font-weight: 600;
+        text-align: center;
+      }
+
+      > p {
+        text-align: center;
+        opacity: .7;
+        font-weight: 500;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    }
+
+    > form {
+
+      .item {
+        margin-bottom: 20px;
+      }
+
+      .submit {
+        padding-top: 10px;
+      }
+    }
+
+    .registration {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+
+      > p {
+        font-size: 14px;
+        opacity: .7;
+        font-weight: 500;
+      }
+
+      a {
+        font-size: 14px;
+        margin-left: 10px;
+        font-weight: 500;
+        color: #97cf6e;
+        transition: ease-in-out .2s;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .or {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+
+      .line {
+        width: 100%;
+        height: 1px;
+        background: rgba(36, 43, 68, .1);
+      }
+
+      > p {
+        margin: 0 15px;
+        opacity: .7;
+        font-size: 14px;
+      }
+    }
+
+    .google {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 10px;
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: ease-in-out .2s;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+      &:hover {
+        box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+      }
+
+      > img {
+        width: 25px;
+      }
+
+      > h5 {
+        font-weight: 600;
+        margin-left: 20px;
+      }
+    }
+
+    .agreement {
+      margin: 40px auto 0;
+      width: 80%;
+
+      p {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+
+        a {
+          color: #97cf6e;
+          transition: ease-in-out .2s;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+
+}

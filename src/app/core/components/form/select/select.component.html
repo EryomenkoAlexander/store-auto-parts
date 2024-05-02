@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <label for="select">{{label}}</label>
+  <div class="inner">
+    <div class="title" (click)="toggleSelect()" [ngClass]="{ selectOpened: selectIsOpen }">
+      <input
+        id="select"
+        [type]="type"
+        [placeholder]="placeholder"
+        [value]="activeValue"
+        (input)="filterItem($event)"
+      >
+      <label for="select" class="icon">
+        <i class="fa-solid fa-caret-down"></i>
+      </label>
+    </div>
+
+    <div class="items" *ngIf="selectIsOpen">
+      <div
+        class="item"
+        *ngFor="let item of filteredItems"
+        (click)="changeItem(item)"
+        [ngClass]="{
+          activeItem: activeValue === item.title,
+          inactiveItem:  activeValue !== item.title
+        }"
+      >
+        <h5>{{item.title}}</h5>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="catalog">
+  <div class="container">
+    <div class="catalog__wrapper">
+      <div class="menu">
+        <div class="menu-basket-btn">
+          <app-button
+            color="#91cf6e"
+            text="В корзину"
+            size="lg"
+            width="full"
+            (onClick)="goToBasket()"
+          ></app-button>
+          <span class="menu-basket-btn-icon" (click)="goToBasket()"><i class="fa-solid fa-trash-can"></i></span>
+        </div>
+        <div class="menu__wrapper">
+          <div class="menu-item"
+               *ngFor="let menuItem of menuItems"
+               (click)="setActiveMenuItem(menuItem)"
+               [class.menu-item-active]="menuItem.title === menuItemActive.title"
+          >
+            <span class="menu-item-title">{{menuItem.title}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-items">
+        <div class="catalog-items-item" *ngFor="let part of activeParts">
+          <div class="catalog-items-item-wrapper">
+           <div class="catalog-items-item-content">
+             <div class="catalog-items-item-image" [style.background]="getBg(part.imagePath)"></div>
+             <div class="catalog-items-item-short-info">
+               <span class="catalog-items-item-description">{{part.description}}</span>
+               <span class="catalog-items-item-brand">Производитель: <span [style.font-weight]="600">{{part.brand}}</span></span>
+             </div>
+           </div>
+
+            <div class="catalog-items-item-additional">
+              <span class="catalog-items-item-additional-price">{{part.price | number}} ₸</span>
+              <div class="catalog-items-item-additional__btns">
+                <app-button
+                  text="Детали"
+                  size="lg"
+                  width="full"
+                  (onClick)="goToPartDetails(part)"
+                ></app-button>
+                <app-button
+                  color="#242b44"
+                  text="Купить"
+                  size="lg"
+                  width="full"
+                  (onClick)="onBuy(part)"
+                ></app-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

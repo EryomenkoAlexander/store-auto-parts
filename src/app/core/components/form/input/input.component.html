@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <label>{{label}}</label>
+  <div
+    class="inner"
+    [ngClass]="{
+      before: iconPosition === 'before',
+      after: iconPosition === 'after',
+      invalid: control?.errors && control?.touched
+    }"
+    [style.width]="width"
+  >
+    <label *ngIf="iconData" class="icon" (click)="clickIcon()">
+      <i [class]="iconData"></i>
+    </label>
+    <input
+      *ngIf="control"
+      [formControl]="formControl"
+      autocomplete="new-password"
+      [type]="type"
+      [placeholder]="placeholder"
+      [mask]="mask"
+    >
+    <div class="fa-solid fa-circle-exclamation iconInvalid" *ngIf="control?.errors && control?.touched"></div>
+  </div>
+  <div class="errorMessages" *ngIf="control?.errors && control?.touched">
+    <span *ngIf="control?.hasError('required')">Поле обязательно</span>
+    <span *ngIf="control?.hasError('minlength')">Минимум {{control?.getError('minlength')?.requiredLength}} символов</span>
+    <span *ngIf="control?.hasError('matchOther')">Пароли не совпадают</span>
+    <span *ngIf="control?.hasError('email')">Неверный формат Email</span>
+    <span *ngIf="control?.hasError('mask')">Неверный формат телефона</span>
+  </div>
+</div>

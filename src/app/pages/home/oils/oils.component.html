@@ -1,0 +1,35 @@
+<div class="oils">
+  <div class="container">
+    <div class="oils__wrapper">
+      <div class="oils__header">
+        <h2 class="oils__header-title">Масла и технические жидкости</h2>
+      </div>
+      <div class="cards">
+        <div class="card" *ngFor="let oil of oils">
+          <div class="image-container">
+            <img [src]="oil.imgPath" alt="oil">
+          </div>
+          <div class="card-info">
+            <h5 class="card-title">{{oil.title}}</h5>
+            <span class="card-sub-title">Вид масла:</span>
+            <span class="card-sub-value">{{oil.type}}</span>
+            <span class="card-sub-title">Класс вязкости SAE:</span>
+            <span class="card-sub-value">{{oil.classSae}}</span>
+            <div class="card__volumes">
+              <span class="card__volumes-item" *ngFor="let volume of oil.volumes">{{volume}}л</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="oils-btn">
+      <app-button
+        color="#242b44"
+        text="Посмотреть еще"
+        size="lg"
+        width="full"
+        (onClick)="goToCatalog()"
+      ></app-button>
+    </div>
+  </div>
+</div>

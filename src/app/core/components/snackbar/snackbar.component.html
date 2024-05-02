@@ -1,0 +1,11 @@
+<div
+  [class]="[
+    'snackbar',
+    snackbarData.type,
+    isClosed ? 'closed' : null
+  ]"
+  (click)="close()"
+>
+  <i [class]="getIcon(snackbarData.type)"></i>
+  <h5>{{snackbarData.message}}</h5>
+</div>

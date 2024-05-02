@@ -1,0 +1,97 @@
+.oils {
+  padding: 100px;
+
+  &__header {
+    margin-bottom: 40px;
+    border-radius: 300px 0 300px 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(145, 207, 110);
+
+    &-title {
+      color: #ffffff;
+    }
+  }
+
+  &__wrapper {
+
+    .cards {
+      display: flex;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .card {
+      border-radius: 20px;
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      padding: 20px;
+      transition: .2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .image-container {
+        max-width: 60%;
+        margin-bottom: 30px;
+      }
+
+      &-title {
+        font-weight: 600;
+        text-align: left;
+        font-size: 16px;
+      }
+
+      &-sub-title {
+        text-align: left;
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      &-sub-value {
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      &__volumes {
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+        margin-top: 30px;
+        gap: 10px;
+
+        &-item {
+          padding: 10px;
+          width: 100%;
+          border-radius: 10px;
+          background: rgb(243, 185, 73);
+          text-align: center;
+          color: #ffffff;
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  &-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+  }
+}

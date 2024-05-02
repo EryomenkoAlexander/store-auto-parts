@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="title">
+      <h2>Регистрация</h2>
+      <p>Создайте свой аккаунт и исследуйте запчасти!</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="item">
+        <app-input
+          label="Имя"
+          placeholder="Конор"
+          [control]="form.get('firstName')"
+        ></app-input>
+      </div>
+
+      <div class="item">
+        <app-input
+          label="Фамилия"
+          placeholder="Макгрегор"
+          [control]="form.get('lastName')"
+        ></app-input>
+      </div>
+
+      <div class="item">
+        <app-input
+          label="Email"
+          placeholder="oil@gmail.com"
+          type="email"
+          [control]="form.get('email')"
+        ></app-input>
+      </div>
+
+      <div class="item">
+        <app-input
+          label="Номер телефона"
+          placeholder="+0 (000) 000 00 00"
+          [mask]="maskPhoneNumber"
+          [control]="form.get('phoneNumber')"
+        ></app-input>
+      </div>
+
+      <div class="item">
+        <app-input
+          label="Пароль"
+          placeholder="******"
+          [iconData]="showPassword ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash'"
+          [type]="showPassword ? 'text' : 'password'"
+          iconPosition="after"
+          (onClickIcon)="toggleShowPassword()"
+          [control]="form.get('password')"
+        ></app-input>
+      </div>
+
+      <div class="item">
+        <app-input
+          label="Подтверждение пароля"
+          placeholder="******"
+          [iconData]="showConfirmPassword ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash'"
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          iconPosition="after"
+          (onClickIcon)="toggleConfirmShowPassword()"
+          [control]="form.get('confirmPassword')"
+        ></app-input>
+      </div>
+
+      <div class="submit">
+        <app-button
+          color="#242b44"
+          text="Регистрация"
+          size="lg"
+          width="full"
+          [disabled]="form.invalid"
+          (onClick)="onSubmit()"
+        ></app-button>
+      </div>
+    </form>
+
+    <div class="registration">
+      <p>Уже есть аккаунт?</p>
+      <a routerLink="/pages/auth/sign-in">Войти</a>
+    </div>
+
+    <div class="agreement">
+      <p>
+        Регистрируясь для создания учетной записи, я принимаю
+        <a [href]="linkConfidentiality" target="_blank">Условия использования и Политику конфиденциальности.</a>
+      </p>
+    </div>
+
+  </div>
+</div>

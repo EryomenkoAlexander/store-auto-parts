@@ -1,0 +1,10 @@
+<button
+  [class]="['button', size, width]"
+  [disabled]="disabled"
+  [ngStyle]="{
+    background: color
+  }"
+  (click)="click()"
+>
+  {{text}}
+</button>

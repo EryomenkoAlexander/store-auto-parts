@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="inner">
+      <div class="left">
+        <div class="title">
+          <h1>
+            Китай, <br> не значит <br> плохая
+            <span>вещь</span>
+          </h1>
+          <p>Здесь ты найдешь как колпачок от шины, так и лобовое стекло <br> от CLS 63 AMG</p>
+        </div>
+
+        <div class="additional-btn">
+          <app-button text="Каталог" color="#f3b949" size="lg" (onClick)="goToCatalog()"></app-button>
+
+          <div class="support">
+            <div>
+              <i class="fa-sharp fa-solid fa-question"></i>
+            </div>
+            <h5>Тех. поддержка</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="right-wrapper">
+          <div *ngFor="let sparePart of sparePartsGreeting" class="item">
+            <div class="item-inner">
+              <img [src]="sparePart.imagePath" [alt]="sparePart.title">
+              <h3>{{sparePart.title}}</h3>
+              <a [routerLink]="sparePart.path">Посмотреть</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img src="assets/images/leaves.jpg" alt="leaves" class="bg">
+  </div>
+
+</div>

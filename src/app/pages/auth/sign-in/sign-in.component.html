@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="title">
+      <h2>Авторизация</h2>
+      <p>Войдите в свой аккаунт и исследуйте запчасти!</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="item">
+        <app-input
+          label="Email"
+          placeholder="oil@gmail.com"
+          [control]="form.get('email')"
+        ></app-input>
+      </div>
+
+      <div class="item">
+        <app-input
+          label="Пароль"
+          placeholder="******"
+          [iconData]="showPassword ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash'"
+          [type]="showPassword ? 'text' : 'password'"
+          iconPosition="after"
+          [control]="form.get('password')"
+          (onClickIcon)="toggleShowPassword()"
+        ></app-input>
+      </div>
+
+      <div class="submit">
+        <app-button
+          color="#242b44"
+          text="Войти"
+          size="lg"
+          width="full"
+          [disabled]="form.invalid"
+          (onClick)="onSubmit()"
+        ></app-button>
+      </div>
+    </form>
+
+    <div class="registration">
+      <p>Нету аккаунта?</p>
+      <a routerLink="/pages/auth/registration">Регистрация</a>
+    </div>
+
+    <div class="agreement">
+      <p>
+        Регистрируясь для создания учетной записи, я принимаю
+        <a [href]="linkConfidentiality" target="_blank">Условия использования и Политику конфиденциальности.</a>
+      </p>
+    </div>
+
+  </div>
+</div>
