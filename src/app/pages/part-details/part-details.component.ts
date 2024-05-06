@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {CategoryEnum} from "../../core/enums/category.enum";
 import {ActivatedRoute, Router} from "@angular/router";
-import {pipe, Subject, takeUntil} from "rxjs";
+import {Subject, takeUntil} from "rxjs";
 import {SnackbarService} from "../../core/components/snackbar/core/services/snackbar.service";
 import {CatalogItemInterface} from "../../core/interfaces/catalog-item.interface";
 import {GeneralPartsInterface} from "../../core/interfaces/general-parts.interface";
@@ -46,7 +46,6 @@ export class PartDetailsComponent implements OnInit, OnDestroy {
       this._router.navigate(['pages/catalog'])
       return
     }
-    console.log(this.foundPart)
   }
 
   public onBuy(part: CatalogItemInterface | undefined) {

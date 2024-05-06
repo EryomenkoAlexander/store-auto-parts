@@ -28,7 +28,7 @@ export class CatalogComponent implements OnInit {
   ) {}
 
   private _initMenuItemActive() {
-    this.setActiveMenuItem(this.menuItems[3])
+    this.setActiveMenuItem(this.menuItems[6])
   }
 
   private _findActivePart() {

@@ -25,5 +25,9 @@ export const PagesRouting: Routes = [
   {
     path: 'part-details',
     loadChildren: () => import('./part-details/part-details.module').then(m => m.PartDetailsModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then(m => m.SearchModule)
   }
 ]

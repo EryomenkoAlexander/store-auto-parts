@@ -1,0 +1,55 @@
+<div class="search-page">
+  <div class="container">
+    <div class="search-page__wrapper">
+      <div class="search-page__btns">
+        <app-button
+          color="#91cf6e"
+          text="Каталог"
+          size="lg"
+          width="full"
+          (onClick)="goToCatalog()"
+        ></app-button>
+        <app-button
+          color="#242b44"
+          text="Корзина"
+          size="lg"
+          width="full"
+          (onClick)="goToBasket()"
+        ></app-button>
+      </div>
+
+      <div class="search-page-items">
+        <div class="search-page-items-item" *ngFor="let part of filteredParts">
+          <div class="search-page-items-item-wrapper">
+            <div class="search-page-items-item-content">
+              <div class="search-page-items-item-image" [style.background]="getBg(part.imagePath)"></div>
+              <div class="search-page-items-item-short-info">
+                <span class="search-page-items-item-description">{{part.description}}</span>
+                <span class="search-page-items-item-brand">Производитель: <span [style.font-weight]="600">{{part.brand}}</span></span>
+              </div>
+            </div>
+
+            <div class="search-page-items-item-additional">
+              <span class="search-page-items-item-additional-price">{{part.price | number}} ₸</span>
+              <div class="search-page-items-item-additional__btns">
+                <app-button
+                  text="Детали"
+                  size="lg"
+                  width="full"
+                  (onClick)="goToPartDetails(part)"
+                ></app-button>
+                <app-button
+                  color="#242b44"
+                  text="Купить"
+                  size="lg"
+                  width="full"
+                  (onClick)="onBuy(part)"
+                ></app-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

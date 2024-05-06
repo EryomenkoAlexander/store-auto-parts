@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
 
   public onSearch() {
     const { value } = this.searchValueControl
-    console.log(value)
+    this._router.navigate(['pages', 'search'], { queryParams: { searchValue: value } })
   }
 
   public logout() {
