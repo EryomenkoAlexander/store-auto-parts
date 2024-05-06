@@ -6,6 +6,7 @@ import {SnackbarService} from "../../core/components/snackbar/core/services/snac
 import {CatalogItemInterface} from "../../core/interfaces/catalog-item.interface";
 import {GeneralPartsInterface} from "../../core/interfaces/general-parts.interface";
 import {GeneralParts} from "../../core/consts/catalog/general-parts";
+import {BasketService} from "../../core/services/basket.service";
 
 @Component({
   selector: 'app-part-details',
@@ -23,7 +24,8 @@ export class PartDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _snackbarService: SnackbarService,
-    private _router: Router
+    private _router: Router,
+    private _basketService: BasketService
   ) {}
 
   private _findPart(category: CategoryEnum, description: string) {
@@ -38,13 +40,27 @@ export class PartDetailsComponent implements OnInit, OnDestroy {
       this._router.navigate(['pages/catalog'])
       return
     }
-    this.foundPart = foundPartsByCategory.find((path: CatalogItemInterface) => path.description === description)
+    this.foundPart = foundPartsByCategory.find((part: CatalogItemInterface) => part.description === description)
     if (!this.foundPart) {
       this._snackbarService.error('Товар не найден')
       this._router.navigate(['pages/catalog'])
       return
     }
     console.log(this.foundPart)
+  }
+
+  public onBuy(part: CatalogItemInterface | undefined) {
+    if (!part) return
+    this._basketService.addItemToBasket(part)
+    this._snackbarService.success(`Товар успешно добавлен в корзину ( ${part.brand} )`)
+  }
+
+  public goToCatalog() {
+    this._router.navigate(['pages', 'catalog'])
+  }
+
+  public goToBasket() {
+    this._router.navigate(['pages', 'basket'])
   }
 
   ngOnInit() {

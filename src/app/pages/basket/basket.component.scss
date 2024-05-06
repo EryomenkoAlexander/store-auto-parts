@@ -88,6 +88,12 @@
         gap: 20px;
         align-items: flex-end;
 
+        &__btns {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
         &-price {
           font-weight: 600;
           font-size: 22px;

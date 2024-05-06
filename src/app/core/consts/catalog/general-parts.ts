@@ -3,7 +3,6 @@ import {Pumps} from "./pumps";
 import {Jacks} from "./jacks";
 import {MotorOils} from "./motorOils";
 import {Antifreeze} from "./antifreeze";
-import {Tires} from "./tires";
 import {Discs} from "./discs";
 import {SteeringWheel} from "./steeringWheel";
 import {Batteries} from "./batteries";
@@ -11,6 +10,7 @@ import {Wipers} from "./wipers";
 import {Engines} from "./engines";
 import {Gearbox} from "./gearbox";
 import {ShockAbsorbers} from "./shockAbsorbers";
+import {Tires} from "./tires";
 
 export const GeneralParts: GeneralPartsInterface = {
   pumps: Pumps,

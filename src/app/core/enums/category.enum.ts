@@ -3,7 +3,6 @@ export enum CategoryEnum {
   jacks= 'jacks',
   motorOils= 'motorOils',
   antifreeze= 'antifreeze',
-  gasTankCaps= 'gasTankCaps',
   tires= 'tires',
   discs= 'discs',
   steeringWheel= 'steeringWheel',

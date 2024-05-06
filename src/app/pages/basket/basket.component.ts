@@ -56,4 +56,13 @@ export class BasketComponent {
     this._router.navigate(['/pages/create-order'])
   }
 
+  public goToPartDetails(part: CatalogItemInterface) {
+    this._router.navigate(['pages/part-details'], {
+      queryParams: {
+        category: part.category,
+        description: part.description
+      }
+    })
+  }
+
 }

@@ -1,7 +1,35 @@
 <div class="part-details">
   <div class="container">
     <div class="part-details__wrapper">
+      <div class="part-details__left">
+        <h2 class="part-details-description">{{foundPart?.description}}</h2>
+        <div class="part-details-info">
+          <span class="part-details-brand">{{foundPart?.brand}}</span>
+          <span class="part-details-category">{{foundPart?.category | uppercase}}</span>
+        </div>
+        <span class="part-details-price">{{foundPart?.price | number}} ₸</span>
+        <div class="part-details__btns">
+          <app-button
+            color="#242b44"
+            text="Купить"
+            size="lg"
+            width="full"
+            (onClick)="onBuy(foundPart)"
+          ></app-button>
+          <app-button text="Каталог" color="#f3b949" size="lg" (onClick)="goToCatalog()"></app-button>
+          <app-button
+            color="#91cf6e"
+            text="Корзина"
+            size="lg"
+            width="full"
+            (onClick)="goToBasket()"
+          ></app-button>
+        </div>
+      </div>
 
+      <div class="part-details__right">
+        <img class="part-details-image" [src]="foundPart?.imagePath" alt="part">
+      </div>
     </div>
   </div>
 </div>

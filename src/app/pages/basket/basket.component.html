@@ -47,13 +47,21 @@
                     (onClick)="plus(part)"
                   ></app-button>
                 </div>
-                <app-button
-                  text="Удалить"
-                  size="lg"
-                  width="full"
-                  color="#FF5B00"
-                  (onClick)="deleteItem(part)"
-                ></app-button>
+                <div class="basket__items-item-additional__btns">
+                  <app-button
+                    text="Детали"
+                    size="lg"
+                    width="full"
+                    (onClick)="goToPartDetails(part)"
+                  ></app-button>
+                  <app-button
+                    text="Удалить"
+                    size="lg"
+                    width="full"
+                    color="#FF5B00"
+                    (onClick)="deleteItem(part)"
+                  ></app-button>
+                </div>
               </div>
             </div>
           </div>
